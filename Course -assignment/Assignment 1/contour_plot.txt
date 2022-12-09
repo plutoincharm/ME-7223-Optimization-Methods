@@ -1,0 +1,28 @@
+###3D
+
+def f(x, y):
+    return (25 * (x**2)) + (12 * (y**2)) - (20 * x * y) + (12 * y)
+x = np.linspace(-15, 10)
+y = np.linspace(-15, 10)
+X, Y = np.meshgrid(x, y)
+Z = f(X, Y)
+ax = plt.axes(projection='3d')
+ax.contour3D(X, Y, Z, 50, cmap='plasma')
+ax.set_xlabel('x')
+ax.set_ylabel('y')
+ax.set_zlabel('z')
+plt.savefig('1.png')
+
+
+
+###2D
+
+def f(x, y):
+    return (25 * (x**2)) + (12 * (y**2)) - (20 * x * y) + (12 * y)
+x = np.linspace(-15, 10)
+y = np.linspace(-15, 10)
+X, Y = np.meshgrid(x, y)
+Z = f(X, Y)
+cp = plt.contourf(X, Y, Z)
+plt.colorbar(cp)
+plt.savefig('2.png')
